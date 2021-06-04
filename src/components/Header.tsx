@@ -1,7 +1,7 @@
 // @ts-ignore
 
 import * as React from 'react';
-import { Container, Image, Nav, Navbar, NavDropdown } from 'react-bootstrap'
+import { Image, Nav, Navbar, } from 'react-bootstrap'
 import search from '../images/Union.png'
 import union from '../images/Union1.png'
 import star from '../images/Star (Stroke).png'
