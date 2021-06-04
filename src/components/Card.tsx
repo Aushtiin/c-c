@@ -6,7 +6,9 @@ interface Props {
   group: string,
   graph: string,
   gph: string,
-  funds: string
+  funds: string,
+  fundsPerc: string,
+  amountType: boolean,
 }
 
 export const Card = (props: Props) => {
@@ -46,18 +48,13 @@ export const Card = (props: Props) => {
             </div>
           </div>
         </Col>
-        {/* <Col className='gph'>
-        <div className="">
-              <Image src={gph} />
-            </div>
-        </Col> */}
         <Col className='third'>
           <div className="three">
         <div className="">
               <Image src={props.gph} />
             </div> 
             <div className="am-text">
-              <h4 className={`${props.funds ===`$00.00` && `text-muted`}`}>{props.funds}</h4>
+              <h4 className={`${props.funds ===`$00.00` && `text-muted`}`}>{props.amountType === true ? props.fundsPerc : props.funds}</h4>
               <span>Total commitment funds</span>
             </div>
           </div>

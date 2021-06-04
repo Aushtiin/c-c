@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { Col, Row } from 'react-bootstrap'
 import { Card } from './Card'
 import SideBar from './SideBar'
@@ -17,7 +17,7 @@ interface Props {
   
 }
 const Main = (props: Props) => {
-  console.log(typeof gph)
+  const [amountType, setAmountType] = useState(false)
   return (
     <div className='mainp'>
       <Row className='m-row'>
@@ -28,12 +28,12 @@ const Main = (props: Props) => {
           <div className="topbar mb-5">
             <div className="filter">
               <span>Select assets, types and period:</span>
-              <a href='/#' className='span'>FILTER</a>
+              <span className='span'>FILTER</span>
             </div>
             <div className="unit">
               <span>Units:</span>
-              <a href='/#' id='s1'>%</a>
-              <span id='s2'>$</span>
+              <span className='s1' onClick={() => setAmountType(true)} id={`${amountType === true ? `s2` : `s1`}`}>%</span>
+              <span className='s2' onClick={() => setAmountType(false)} id={`${amountType === false ? `s2` : `s1`}`}>$</span>
             </div>
             <div className="sort">
               <span>Sort by</span>
@@ -43,11 +43,11 @@ const Main = (props: Props) => {
             </div>
           </div>
           <div className="card-div">
-            <Card star={star} group={group} graph={graph} gph={gph} funds={`$34,346.00`} />
-            <Card star={star} group={group} graph={graph} gph={gph2} funds={`$329,146.00`} />
-            <Card star={star} group={group} graph={graph} gph={gph3} funds={`$129,146.00`} />
-            <Card star={star} group={group} graph={graph} gph={gph4} funds={`$46.00`} />
-            <Card star={star} group={group} graph={graph6} gph={gph5} funds={`$00.00`} />
+            <Card star={star} group={group} graph={graph} gph={gph} funds={`$34,346.00`} fundsPerc={`40.5%`}  amountType={amountType} />
+            <Card star={star} group={group} graph={graph} gph={gph2} funds={`$329,146.00`} fundsPerc={`90.5%`} amountType={amountType} />
+            <Card star={star} group={group} graph={graph} gph={gph3} funds={`$129,146.00`} fundsPerc={`80.5%`} amountType={amountType} />
+            <Card star={star} group={group} graph={graph} gph={gph4} funds={`$46.00`} fundsPerc={`0.01%`} amountType={amountType} />
+            <Card star={star} group={group} graph={graph6} gph={gph5} funds={`$00.00`} fundsPerc={`0.00%`} amountType={amountType} />
           </div>
         </Col>
       </Row>
